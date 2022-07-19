@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-__author__ = "Vilhelm Prytz"
-__email__ = "vilhelm@prytznet.se"
+__author__ = "Vasolix"
+__email__ = "vasolix@vasolix.xyz"
 
 def read():
     with open("CHANGELOG.md") as f:

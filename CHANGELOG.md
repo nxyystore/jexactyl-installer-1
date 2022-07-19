@@ -1,6 +1,11 @@
 # Changelog
 
 This project follows the [semantic versioning](https://semver.org) convention. Changelog points should be divided into fixed, changed, or added.
+## v0.12.0 (released on 2022-07-19)
+
+### Added
+
+- jexactyl/jexactyl: Added support for Jexactyl files
 
 ## v0.11.0 (released on 2022-05-17)
 
