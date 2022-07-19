@@ -46,8 +46,8 @@ fi
 ########## Variables ############
 
 # versioning
-GITHUB_SOURCE="0.11.0"
-SCRIPT_RELEASE="0.11.0"
+GITHUB_SOURCE="0.12.0"
+SCRIPT_RELEASE="0.12.0"
 
 FQDN=""
 
