@@ -987,7 +987,7 @@ main() {
 
   MYSQL_USER="-"
   while [[ "$MYSQL_USER" == *"-"* ]]; do
-    required_input MYSQL_USER "Database username (pterodactyl): " "" "pterodactyl"
+    required_input MYSQL_USER "Database username (jexactyl): " "" "jexactyl"
     [[ "$MYSQL_USER" == *"-"* ]] && print_error "Database user cannot contain hyphens"
   done
 
