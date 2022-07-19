@@ -47,7 +47,7 @@ fi
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="0.12.0"
+SCRIPT_RELEASE="0.13.0"
 
 FQDN=""
 
