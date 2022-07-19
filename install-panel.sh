@@ -386,7 +386,7 @@ ptdl_dl() {
   [ "$OS" == "centos" ] && export PATH=/usr/local/bin:$PATH
   COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
 
-  php artisan key:generate --force
+  php artisan key:generate --force --no-interaction
   echo "* Downloaded jexactyl panel files & installed composer dependencies!"
 }
 
