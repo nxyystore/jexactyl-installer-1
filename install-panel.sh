@@ -47,7 +47,7 @@ fi
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="canary"
+SCRIPT_RELEASE="0.11.0"
 
 FQDN=""
 
