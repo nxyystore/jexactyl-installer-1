@@ -4,9 +4,9 @@ set -e
 
 #############################################################################
 #                                                                           #
-# Project 'pterodactyl-installer' for wings                                 #
+# Project 'jexactyl-installer' for panel, edit of 'pterodactyl-installer'   #
+# by Vilhelm Prytz https://github.com/vilhelmprytz/pterodactyl-installer    #
 #                                                                           #
-# Copyright (C) 2018 - 2022, Vilhelm Prytz, <vilhelm@prytznet.se>           #
 #                                                                           #
 #   This program is free software: you can redistribute it and/or modify    #
 #   it under the terms of the GNU General Public License as published by    #
@@ -21,10 +21,10 @@ set -e
 #   You should have received a copy of the GNU General Public License       #
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.  #
 #                                                                           #
-# https://github.com/vilhelmprytz/pterodactyl-installer/blob/master/LICENSE #
+# https://github.com/Vasolix/jexactyl-installer/blob/master/LICENSE         #
 #                                                                           #
 # This script is not associated with the official Pterodactyl Project.      #
-# https://github.com/vilhelmprytz/pterodactyl-installer                     #
+# https://github.com/Vasolix/jexactyl-installer                             #
 #                                                                           #
 #############################################################################
 
@@ -55,7 +55,7 @@ fi
 
 # download URLs
 WINGS_DL_BASE_URL="https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer/$GITHUB_SOURCE"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/Vasolix/jexactyl-installer/$GITHUB_SOURCE"
 
 COLOR_RED='\033[0;31m'
 COLOR_NC='\033[0m'
@@ -667,10 +667,11 @@ main() {
   print_brake 70
   echo "* Pterodactyl Wings installation script @ $SCRIPT_RELEASE"
   echo "*"
-  echo "* Copyright (C) 2018 - 2022, Vilhelm Prytz, <vilhelm@prytznet.se>"
+  echo "* Jexactyl Installer fork of Pterodactyl Installer"
+  echo "* https://github.com/Vasolix/Jexactyl-installer"
   echo "* https://github.com/vilhelmprytz/pterodactyl-installer"
   echo "*"
-  echo "* This script is not associated with the official Pterodactyl Project."
+  echo "* This script is not associated with the official Pterodactyl Project and jexactyl"
   echo "*"
   echo "* Running $OS version $OS_VER."
   echo "* Latest pterodactyl/wings is $WINGS_VERSION"

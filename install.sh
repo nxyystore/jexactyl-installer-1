@@ -4,9 +4,9 @@ set -e
 
 #############################################################################
 #                                                                           #
-# Project 'pterodactyl-installer'                                           #
+# Project 'jexactyl-installer' for panel, edit of 'pterodactyl-installer'   #
+# by Vilhelm Prytz https://github.com/vilhelmprytz/pterodactyl-installer    #
 #                                                                           #
-# Copyright (C) 2018 - 2022, Vilhelm Prytz, <vilhelm@prytznet.se>           #
 #                                                                           #
 #   This program is free software: you can redistribute it and/or modify    #
 #   it under the terms of the GNU General Public License as published by    #
@@ -21,17 +21,17 @@ set -e
 #   You should have received a copy of the GNU General Public License       #
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.  #
 #                                                                           #
-# https://github.com/vilhelmprytz/pterodactyl-installer/blob/master/LICENSE #
+# https://github.com/Vasolix/jexactyl-installer/blob/master/LICENSE         #
 #                                                                           #
 # This script is not associated with the official Pterodactyl Project.      #
-# https://github.com/vilhelmprytz/pterodactyl-installer                     #
+# https://github.com/Vasolix/jexactyl-installer                             #
 #                                                                           #
 #############################################################################
 
-SCRIPT_VERSION="v0.11.0"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/vilhelmprytz/pterodactyl-installer"
+SCRIPT_VERSION="v0.1.0"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/Vasolix/jexactyl-installer"
 
-LOG_PATH="/var/log/pterodactyl-installer.log"
+LOG_PATH="/var/log/jexactyl-installer.log"
 
 # exit with error status code if user is not root
 if [[ $EUID -ne 0 ]]; then
@@ -60,7 +60,7 @@ error() {
 }
 
 execute() {
-  echo -e "\n\n* pterodactyl-installer $(date) \n\n" >>$LOG_PATH
+  echo -e "\n\n* jexactyl-installer $(date) \n\n" >>$LOG_PATH
 
   bash <(curl -s "$1") | tee -a $LOG_PATH
   [[ -n $2 ]] && execute "$2"
@@ -68,13 +68,14 @@ execute() {
 
 done=false
 
-output "Pterodactyl installation script @ $SCRIPT_VERSION"
+output "Jexactyl installation script @ $SCRIPT_VERSION"
 output
-output "Copyright (C) 2018 - 2022, Vilhelm Prytz, <vilhelm@prytznet.se>"
+output "Jexactyl Installer fork of Pterodactyl Installer"
+output "https://github.com/Vasolix/Jexactyl-installer"
 output "https://github.com/vilhelmprytz/pterodactyl-installer"
 output
 output "Sponsoring/Donations: https://github.com/vilhelmprytz/pterodactyl-installer?sponsor=1"
-output "This script is not associated with the official Pterodactyl Project."
+output "This script is not associated with the official Pterodactyl Project and jexactyl"
 
 output
 
