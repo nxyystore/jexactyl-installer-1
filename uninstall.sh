@@ -164,11 +164,11 @@ check_os_comp() {
 
 rm_panel_files() {
   output "Removing panel files..."
-  rm -rf /var/www/pterodactyl /usr/local/bin/composer
-  [ "$OS" != "centos" ] && unlink /etc/nginx/sites-enabled/pterodactyl.conf
-  [ "$OS" != "centos" ] && rm -f /etc/nginx/sites-available/pterodactyl.conf
+  rm -rf /var/www/jexactyl /usr/local/bin/composer
+  [ "$OS" != "centos" ] && unlink /etc/nginx/sites-enabled/panel.conf
+  [ "$OS" != "centos" ] && rm -f /etc/nginx/sites-available/panel.conf
   [ "$OS" != "centos" ] && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-  [ "$OS" == "centos" ] && rm -f /etc/nginx/conf.d/pterodactyl.conf
+  [ "$OS" == "centos" ] && rm -f /etc/nginx/conf.d/panel.conf
   systemctl restart nginx
   output "Succesfully removed panel files."
 }
@@ -186,8 +186,8 @@ rm_wings_files() {
 
 rm_services() {
   output "Removing services..."
-  systemctl disable --now pteroq
-  rm -rf /etc/systemd/system/pteroq.service
+  systemctl disable --now panel
+  rm -rf /etc/systemd/system/panel.service
   case "$OS" in
   debian | ubuntu)
     systemctl disable --now redis-server
@@ -203,7 +203,7 @@ rm_services() {
 
 rm_cron() {
   output "Removing cron jobs..."
-  crontab -l | grep -vF "* * * * * php /var/www/pterodactyl/artisan schedule:run >> /dev/null 2>&1" | crontab -
+  crontab -l | grep -vF "* * * * * php /var/www/jexactyl/artisan schedule:run >> /dev/null 2>&1" | crontab -
   output "Succesfully removed cron jobs."
 }
 
@@ -236,11 +236,11 @@ rm_database() {
   output "Removing database user..."
   valid_users=$(mysql -u root -e "SELECT user FROM mysql.user;" | grep -v -E -- 'user|root')
   warning "Be careful! This user will be deleted!"
-  if [[ "$valid_users" == *"pterodactyl"* ]]; then
-    echo -n "* User called pterodactyl has been detected. Is it the pterodactyl user? (y/N): "
+  if [[ "$valid_users" == *"jexactyl"* ]]; then
+    echo -n "* User called jexactyl has been detected. Is it the jexactyl user? (y/N): "
     read -r is_user
     if [[ "$is_user" =~ [Yy] ]]; then
-      DB_USER=pterodactyl
+      DB_USER=jexactyl
     else
       print_list "$valid_users"
     fi
@@ -277,17 +277,16 @@ main() {
   print_brake 70
   output "Pterodactyl uninstallation script"
   output
-  output "Copyright (C) 2018 - 2022, Vilhelm Prytz, <vilhelm@prytznet.se>"
-  output "https://github.com/vilhelmprytz/pterodactyl-installer"
+  output "Copyright (C) 2018 - 2025, Nxyy, <nxyy@nxyy.store>"
+  output "https://github.com/nxyystore/jexactyl-installer"
   output
-  output "Sponsoring/Donations: https://github.com/vilhelmprytz/pterodactyl-installer?sponsor=1"
   output "This script is not associated with the official Pterodactyl Project."
   output
   output "Running $OS version $OS_VER."
   print_brake 70
   check_os_comp
 
-  if [ -d "/var/www/pterodactyl" ]; then
+  if [ -d "/var/www/jexactyl" ]; then
     output "Panel installation has been detected."
     echo -e -n "* Do you want to remove panel? (y/N): "
     read -r RM_PANEL_INPUT

@@ -30,7 +30,7 @@ set -e
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="v0.13.1"
+SCRIPT_RELEASE="v0.13.3"
 
 #################################
 ######## General checks #########
@@ -668,8 +668,7 @@ main() {
   echo "* Pterodactyl Wings installation script @ $SCRIPT_RELEASE"
   echo "*"
   echo "* Jexactyl Installer fork of Pterodactyl Installer"
-  echo "* https://github.com/Vasolix/Jexactyl-installer"
-  echo "* https://github.com/vilhelmprytz/pterodactyl-installer"
+  echo "* https://github.com/nxyystore/jexactyl-installer-1"
   echo "*"
   echo "* This script is not associated with the official Pterodactyl Project and jexactyl"
   echo "*"

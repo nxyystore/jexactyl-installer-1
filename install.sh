@@ -28,7 +28,7 @@ set -e
 #                                                                           #
 #############################################################################
 
-SCRIPT_VERSION="v0.13.0"
+SCRIPT_VERSION="v0.13.3"
 GITHUB_BASE_URL="https://raw.githubusercontent.com/nxyystore/jexactyl-installer-1"
 
 LOG_PATH="/var/log/jexactyl-installer.log"

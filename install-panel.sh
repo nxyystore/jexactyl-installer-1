@@ -47,7 +47,7 @@ fi
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="v0.13.1"
+SCRIPT_RELEASE="v0.13.3"
 
 FQDN=""
 
@@ -574,7 +574,7 @@ ubuntu22_dep() {
   apt_update
 
   # Install Dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server redis cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -598,7 +598,7 @@ ubuntu20_dep() {
   apt_update
 
   # Install Dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server redis cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -625,7 +625,7 @@ ubuntu18_dep() {
   apt_update
 
   # Install Dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server redis cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -651,7 +651,7 @@ debian_stretch_dep() {
   apt_update
 
   # Install Dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx curl tar unzip git redis-server cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -675,7 +675,7 @@ debian_buster_dep() {
   apt_update
 
   # install dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx curl tar unzip git redis-server cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -699,7 +699,7 @@ debian_dep() {
   apt_update
 
   # install dependencies
-  apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx curl tar unzip git redis-server cron
+  apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis
 
   # Enable services
   enable_services_debian_based
@@ -859,31 +859,31 @@ configure_nginx() {
     rm -rf /etc/nginx/conf.d/default
 
     # download new config
-    curl -o /etc/nginx/conf.d/jexactyl.conf $GITHUB_BASE_URL/configs/$DL_FILE
+    curl -o /etc/nginx/conf.d/panel.conf $GITHUB_BASE_URL/configs/$DL_FILE
 
     # replace all <domain> places with the correct domain
-    sed -i -e "s@<domain>@${FQDN}@g" /etc/nginx/conf.d/jexactyl.conf
+    sed -i -e "s@<domain>@${FQDN}@g" /etc/nginx/conf.d/panel.conf
 
     # replace all <php_socket> places with correct socket "path"
-    sed -i -e "s@<php_socket>@${PHP_SOCKET}@g" /etc/nginx/conf.d/jexactyl.conf
+    sed -i -e "s@<php_socket>@${PHP_SOCKET}@g" /etc/nginx/conf.d/panel.conf
   else
     # remove default config
     rm -rf /etc/nginx/sites-enabled/default
 
     # download new config
-    curl -o /etc/nginx/sites-available/jexactyl.conf $GITHUB_BASE_URL/configs/$DL_FILE
+    curl -o /etc/nginx/sites-available/panel.conf $GITHUB_BASE_URL/configs/$DL_FILE
 
     # replace all <domain> places with the correct domain
-    sed -i -e "s@<domain>@${FQDN}@g" /etc/nginx/sites-available/jexactyl.conf
+    sed -i -e "s@<domain>@${FQDN}@g" /etc/nginx/sites-available/panel.conf
 
     # replace all <php_socket> places with correct socket "path"
-    sed -i -e "s@<php_socket>@${PHP_SOCKET}@g" /etc/nginx/sites-available/jexactyl.conf
+    sed -i -e "s@<php_socket>@${PHP_SOCKET}@g" /etc/nginx/sites-available/panel.conf
 
     # on debian 9, TLS v1.3 is not supported (see #76)
-    [ "$OS" == "debian" ] && [ "$OS_VER_MAJOR" == "9" ] && sed -i 's/ TLSv1.3//' /etc/nginx/sites-available/jexactyl.conf
+    [ "$OS" == "debian" ] && [ "$OS_VER_MAJOR" == "9" ] && sed -i 's/ TLSv1.3//' /etc/nginx/sites-available/panel.conf
 
     # enable pterodactyl
-    ln -sf /etc/nginx/sites-available/jexactyl.conf /etc/nginx/sites-enabled/jexactyl.conf
+    ln -sf /etc/nginx/sites-available/panel.conf /etc/nginx/sites-enabled/panel.conf
   fi
 
   if [ "$ASSUME_SSL" == false ] && [ "$CONFIGURE_LETSENCRYPT" == false ]; then
