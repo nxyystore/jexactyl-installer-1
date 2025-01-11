@@ -47,7 +47,7 @@ fi
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="0.13.0"
+SCRIPT_RELEASE="v0.13.1"
 
 FQDN=""
 
@@ -958,8 +958,7 @@ main() {
   echo "* Jexactyl panel installation script @ $SCRIPT_RELEASE"
   echo "*"
   echo "* Jexactyl Installer fork of Pterodactyl Installer"
-  echo "* https://github.com/Vasolix/Jexactyl-installer"
-  echo "* https://github.com/vilhelmprytz/pterodactyl-installer"
+  echo "* https://github.com/nxyystore/jexactyl-installer-1"
   echo "*"
   echo "* This script is not associated with the official Pterodactyl Project and Jexactyl"
   echo "*"

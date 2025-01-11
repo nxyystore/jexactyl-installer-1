@@ -30,7 +30,7 @@ set -e
 
 # versioning
 GITHUB_SOURCE="master"
-SCRIPT_RELEASE="v0.13.0"
+SCRIPT_RELEASE="v0.13.1"
 
 #################################
 ######## General checks #########
