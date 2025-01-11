@@ -73,7 +73,7 @@ CONFIGURE_LETSENCRYPT=false
 
 # download URLs
 PANEL_DL_URL="https://github.com/Jexactyl/Jexactyl/releases/latest/download/panel.tar.gz"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/Vasolix/jexactyl-installer/$GITHUB_SOURCE"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/nxyystore/jexactyl-installer-1/$GITHUB_SOURCE"
 
 # ufw firewall
 CONFIGURE_UFW=false
@@ -382,7 +382,7 @@ ptdl_dl() {
   chmod -R 755 storage/* bootstrap/cache/
 
   cp .env.example .env
-  sed -i 's/APP_KEY=/APP_KEY=base64:voLfFx5NqSPFiuo1lv077qKsT9oKhIPFDLNl4x0PGqk=/' /var/www/jexactyl/.env
+  sed -i 's/APP_KEY=/APP_KEY=base64:LAi4wPl1yLMS5zRRQaRbSdmeDwtyx0y6XDQSxTp073o=/' /var/www/jexactyl/.env
   [ "$OS" == "centos" ] && export PATH=/usr/local/bin:$PATH
   COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
 

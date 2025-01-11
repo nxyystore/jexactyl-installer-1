@@ -55,7 +55,7 @@ fi
 
 # download URLs
 WINGS_DL_BASE_URL="https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_"
-GITHUB_BASE_URL="https://raw.githubusercontent.com/Vasolix/jexactyl-installer/$GITHUB_SOURCE"
+GITHUB_BASE_URL="https://raw.githubusercontent.com/nxyystore/jexactyl-installer-1/$GITHUB_SOURCE"
 
 COLOR_RED='\033[0;31m'
 COLOR_NC='\033[0m'
@@ -78,7 +78,7 @@ CONFIGURE_DBEXTERNAL=false
 CONFIGURE_DBEXTERNAL_HOST="%"
 CONFIGURE_DB_FIREWALL=false
 MYSQL_DBHOST_USER="pterodactyluser"
-MYSQL_DBHOST_PASSWORD="password"
+MYSQL_DBHOST_PASSWORD="passedword"
 
 # regex for email input
 regex="^(([A-Za-z0-9]+((\.|\-|\_|\+)?[A-Za-z0-9]?)*[A-Za-z0-9]+)|[A-Za-z0-9]+)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
